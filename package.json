@@ -7,13 +7,18 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp dev",
+    "build": "gulp build",
+    "build:prod": "gulp build --prod",
+    "lint": "eslint .",
+    "prettier": "prettier --write \"src/**/*.{js,ts,json,css,scss,md}"
   },
   "engines": {
     "node": ">=18.20.4"
   },
   "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
   "dependencies": {
+    "@godaddy/terminus": "^4.12.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -30,14 +35,18 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@rushstack/eslint-patch": "^1.10.4",
     "@types/bcryptjs": "^2.4.6",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
+    "@types/eslint__js": "^8.42.3",
     "@types/express": "^4.17.21",
     "@types/gulp": "^4.0.17",
     "@types/node": "^22.5.0",
     "@types/uuid": "^10.0.0",
     "@types/ws": "^8.5.12",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -53,7 +62,6 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.3.0"
   },
-
   "prisma": {
     "seed": "tsx -r tsconfig-paths/register prisma/seed.ts"
   }
