@@ -71,7 +71,7 @@ async function copyNonTypeScriptFiles() {
 // }
 
 async function runApp() {
-  const command = 'tsx watch -r tsconfig-paths/register --inspect=0.0.0.0:4000 ./src/app.ts';
+  const command = 'tsx watch -r tsconfig-paths/register --inspect=0.0.0.0:9229 ./src/app.ts';
 
   run(command)();
   return;
