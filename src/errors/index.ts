@@ -1,4 +1,4 @@
-// export * from './error-handler/index.js';
+export * from './error-handler/index.js';
 export * from './unauthenticated.error.js';
 export * from './unauthorized.error.js';
 export * from './bad-input.error.js';
