@@ -3,3 +3,4 @@ node_modules
 .env.local
 .eslintcache
 docker-volumes
+.env
