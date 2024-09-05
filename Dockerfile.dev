@@ -11,10 +11,10 @@ RUN npm install -g pnpm
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 # COPY patches ./patches
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 
 # Copy files from host to container
-COPY ./ ./
+COPY . ./
 
 RUN pnpm build
 
