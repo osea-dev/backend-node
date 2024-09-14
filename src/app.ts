@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import http from 'http';
 import { maintenanceRouter } from "./modules/maintenance/routes/index.js";
 
-import { corsMiddleware, errorMiddleware } from '@/middlewares/index.js';
+import { createContextMiddleware, corsMiddleware, errorMiddleware } from '@/middlewares/index.js';
 // import { createTerminus } from "@godaddy/terminus";
 
 const app = express();
@@ -32,7 +32,7 @@ const app = express();
     app.use(corsMiddleware());
     
     // app.use(['/api']);
-    // app.use(createContextMiddleware());
+    app.use(createContextMiddleware());
 
     const routers: Router[] = [
         // IMPORTANT: Add app routers here
