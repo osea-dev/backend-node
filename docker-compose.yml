@@ -6,6 +6,7 @@ services:
     command: pnpm start
     volumes:
       - ./:/usr/src/app
+      - /usr/src/app/node_modules
     # depends_on:
     #   - db
     ports:
@@ -17,7 +18,7 @@ services:
     container_name: phpmyadmin
     environment:
       - PMA_HOST=mysql
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
       - "8080:80"
     depends_on:
@@ -27,15 +28,15 @@ services:
     image: mysql:8.0
     container_name: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=oseadb
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
       - ./docker-volumes/mysql:/var/lib/mysql
-    
+      - ./init-data.sql:/docker-entrypoint-initdb.d/init-data.sql
+
   redis:
     image: redis:latest
     restart: always
