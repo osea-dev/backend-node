@@ -7,8 +7,8 @@ export const createContextMiddleware = (): RequestHandler => (req, res, next) =>
     let userId = null
     let roles = null
 
-    // const authHeader = req.header.authorization
-    const authHeader = req.get('Authorization')
+    const authHeader = req.headers['authorization'] as string | undefined
+    // const authHeader = req.get('Authorization')
 
     if (authHeader && authHeader.startsWith('Bearer ')) {
         const token = authHeader.split(' ')[1]
