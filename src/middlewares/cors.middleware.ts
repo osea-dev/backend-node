@@ -8,11 +8,16 @@ export const corsMiddleware = (): RequestHandler => {
 
   if (process.env.NODE_ENV !== 'production') {
     whitelist.push(/localhost/);
+  } else {
+    whitelist.push(/test_domain_name.com/)
   }
 
   const corsOptions: CorsOptions = {
     origin: whitelist,
-    // allowedHeaders: ['content-type', ...SuperTokens.getAllCORSHeaders()],
+    allowedHeaders: [
+      'Authorization',
+      'Content-Type'
+    ],
     credentials: true,
   };
 
