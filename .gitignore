@@ -4,3 +4,5 @@ node_modules
 .eslintcache
 docker-volumes
 .env
+.pnpm-store
+prisma/migrations
